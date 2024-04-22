@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "The backend to be able to connect my Angular App with mongoDB",
   "main": "index.js",
-  "type" : "module",
   "scripts": {
     "start" : "nodemon index.js"
   },
