@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Utils } from '../../utils/utils';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -38,9 +39,8 @@ export class RegisterComponent implements OnInit {
 
   submit(form: FormGroup) {
     if (this.validateForm()) {
-      //TODO
+      console.log(form.value);
     } else{
-      console.log("HOLAAAAAAAAA");
       Utils.showAlertError('Todos los campos son obligatorios');
     }
   }

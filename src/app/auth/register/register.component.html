@@ -3,24 +3,25 @@
       <div class="shape"></div>
       <div class="shape"></div>
     </div>
-    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
 
+
+    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
       <h3>Registrate!</h3>
     
       <label>Nombre</label>
-      <input formControlName="nombre" class="in" type="text" placeholder="Tu nombre aquí" id="username">
+      <input formControlName="nombre" value="Juan Esteban" class="in" type="text" placeholder="Tu nombre aquí" id="username">
     
       <label>Apellido</label>
-      <input formControlName="apellido" class="in" type="text" placeholder="Tu apellido aquí">
+      <input formControlName="apellido" value="Parra Parra" class="in" type="text" placeholder="Tu apellido aquí"> 
     
       <label>Correo</label>
-      <input formControlName="correo" class="in" type="text" placeholder="Tu correo">
+      <input formControlName="correo" value="esteban@gmail.com" class="in" type="text" placeholder="Tu correo">
     
       <label>Contraseña</label>
       <input formControlName="contrasenia" class="in"  type="password" placeholder="Tu contraseña">
     
 
-      <button type="submit" class="btn">Regístrame</button>
+      <button type="submit"  class="btn">Regístrame</button>
 
     </form>
     </div>
