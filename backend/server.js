@@ -8,7 +8,7 @@ app.use(express.json());
 dotenv.config();
 
 const PORT = 5000;
-const MONGOURL = "mongodb://localhost:4000";
+const MONGOURL = "mongodb://localhost:4000/hotel";
 
 mongoose
   .connect(MONGOURL)
@@ -22,10 +22,19 @@ mongoose
     console.log(err);
   });
 
-
 app.post("/api/post/users", async (req, res) => {
   try {
     const user = await User.create(req.body);
+    res.status(200).json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
+app.get("/api/get/users/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
     res.status(200).json(user);
   } catch (err) {
     console.error(err);
