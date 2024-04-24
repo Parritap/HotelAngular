@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require("dotenv");
 const User = require("./schemas/user.model.js");
+const cors = require ("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 dotenv.config();
 
 const PORT = 5000;
