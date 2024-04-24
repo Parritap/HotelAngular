@@ -12,6 +12,9 @@ import { UserService } from '../../services/user.service';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent implements OnInit {
+
+  constructor(private userService: UserService) {}
+
   registerForm: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
@@ -40,6 +43,14 @@ export class RegisterComponent implements OnInit {
   submit(form: FormGroup) {
     if (this.validateForm()) {
       console.log(form.value);
+      this.userService.createUser(form.value).subscribe(
+        (response) => {
+          Utils.showAlertSuccess('Usuario creado correctamente');
+        },
+        (error) => {
+          Utils.showAlertError('Error al crear el usuario');
+        }
+      );
     } else{
       Utils.showAlertError('Todos los campos son obligatorios');
     }
